@@ -13,7 +13,7 @@
     <meta property="og:type" content="website">
     
     <!-- Favicon -->
-    <link rel="icon" href="./public/logo.jpeg" type="image/jpeg">
+    <link rel="icon" href="./public/logo.png" type="image/png">
 
     <!-- Google Fonts: Oswald for Headings & Source Sans 3 for Body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -804,18 +804,19 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             background-color: var(--whatsapp-green);
             color: var(--text-white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-            z-index: 999;
-            text-decoration: none;
+            font-size: 2.1rem;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+            z-index: 1001;
+            border: none;
+            cursor: pointer;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             transform: translateY(100px) scale(0);
             opacity: 0;
@@ -831,31 +832,204 @@
         .whatsapp-float:hover {
             background-color: var(--whatsapp-hover);
             transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            box-shadow: 0 10px 28px rgba(37, 211, 102, 0.6);
         }
 
-        /* Tooltip style */
-        .whatsapp-float::before {
-            content: "Falar no WhatsApp";
-            position: absolute;
-            right: 75px;
-            background-color: var(--dark-bg);
-            color: var(--text-white);
-            font-size: 0.85rem;
-            font-weight: 600;
-            padding: 0.5rem 0.8rem;
-            border-radius: 6px;
-            white-space: nowrap;
+        /* WHATSAPP CHAT WIDGET */
+        .whatsapp-chat-container {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            width: 350px;
+            background-color: #F0F2F5;
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            font-family: var(--font-body);
+            transform: translateY(20px) scale(0.95);
             opacity: 0;
             pointer-events: none;
-            transition: var(--transition-smooth);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        .whatsapp-float:hover::before {
+        .whatsapp-chat-container.open {
+            transform: translateY(0) scale(1);
             opacity: 1;
-            right: 70px;
+            pointer-events: auto;
+        }
+
+        .whatsapp-chat-header {
+            background-color: #075E54;
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--text-white);
+        }
+
+        .whatsapp-chat-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .whatsapp-avatar-container {
+            position: relative;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--text-white);
+            padding: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .whatsapp-avatar-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .whatsapp-status-dot {
+            position: absolute;
+            bottom: 1px;
+            right: 1px;
+            width: 12px;
+            height: 12px;
+            background-color: #25D366;
+            border: 2px solid #075E54;
+            border-radius: 50%;
+        }
+
+        .whatsapp-chat-profile-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .whatsapp-chat-name {
+            font-weight: 700;
+            font-size: 1rem;
+            line-height: 1.2;
+            letter-spacing: 0.3px;
+        }
+
+        .whatsapp-chat-status {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-top: 2px;
+        }
+
+        .whatsapp-chat-close {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.6rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0 4px;
+            transition: var(--transition-smooth);
+        }
+
+        .whatsapp-chat-close:hover {
+            color: var(--text-white);
+            transform: scale(1.1);
+        }
+
+        .whatsapp-chat-body {
+            padding: 1.5rem 1.2rem;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23e5ddd5' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm1-61c3.148 0 5.7-2.552 5.7-5.7 0-3.148-2.552-5.7-5.7-5.7-3.148 0-5.7 2.552-5.7 5.7 0 3.148 2.552 5.7 5.7 5.7zm50 11c3.148 0 5.7-2.552 5.7-5.7 0-3.148-2.552-5.7-5.7-5.7-3.148 0-5.7 2.552-5.7 5.7 0 3.148 2.552 5.7 5.7 5.7zm-21-9c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM60 20c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM30 50c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm40 40c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM20 70c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z'/%3E%3C/g%3E%3C/svg%3E");
+            background-color: #E5DDD5;
+        }
+
+        .whatsapp-chat-card {
+            display: flex;
+            gap: 0.8rem;
+            background: var(--text-white);
+            padding: 1.2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .whatsapp-chat-card::after {
+            content: '';
+            position: absolute;
+            top: 22px;
+            left: -8px;
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-right: 8px solid var(--text-white);
+        }
+
+        .whatsapp-chat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .whatsapp-chat-card-avatar {
+            position: relative;
+            width: 18px;
+            height: 18px;
+            background-color: #e6ebe6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .whatsapp-chat-dot-inner {
+            width: 8px;
+            height: 8px;
+            background-color: #075E54;
+            border-radius: 50%;
+        }
+
+        .whatsapp-chat-card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .whatsapp-chat-card-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #075E54;
+        }
+
+        .whatsapp-chat-card-text {
+            font-size: 0.88rem;
+            color: var(--text-sec);
+            line-height: 1.45;
+        }
+
+        .whatsapp-chat-card-link {
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: #075E54;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 0.4rem;
+            transition: var(--transition-smooth);
+        }
+
+        .whatsapp-chat-card:hover .whatsapp-chat-card-link {
+            color: #25D366;
         }
 
         /* RESPONSIVE DESIGN - MEDIA QUERIES (MOBILE FIRST) */
@@ -970,13 +1144,16 @@
             .whatsapp-float {
                 bottom: 20px;
                 right: 20px;
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
+                width: 55px;
+                height: 55px;
+                font-size: 1.8rem;
             }
-            
-            .whatsapp-float::before {
-                display: none; /* Hide tooltip on mobile */
+
+            .whatsapp-chat-container {
+                bottom: 85px;
+                right: 20px;
+                width: calc(100vw - 40px);
+                max-width: 320px;
             }
         }
 
@@ -1027,7 +1204,7 @@
         <div class="container header-container">
             <!-- Logo -->
             <a href="#hero" class="logo-box" aria-label="Voltar ao topo - Papini Fixadores">
-                <img src="./public/logo.jpeg" alt="Papini Fixadores">
+                <img src="./public/logo.png" alt="Papini Fixadores">
             </a>
 
             <!-- Quick Contacts -->
@@ -1323,7 +1500,7 @@
                 <!-- Info/Logo -->
                 <div>
                     <div class="footer-logo">
-                        <img src="./public/logo.jpeg" alt="Papini Fixadores">
+                        <img src="./public/logo.png" alt="Papini Fixadores">
                     </div>
                     <p class="footer-desc">
                         Distribuição e fabricação de fixadores para indústrias, metalúrgicas, montagens industriais e revendedores. Tradição e qualidade que sustentam suas grandes obras.
@@ -1379,15 +1556,47 @@
         </div>
     </footer>
 
+    <!-- WHATSAPP CHAT WIDGET -->
+    <div class="whatsapp-chat-container" id="whatsapp-chat-widget">
+        <!-- Header -->
+        <div class="whatsapp-chat-header">
+            <div class="whatsapp-chat-profile">
+                <div class="whatsapp-avatar-container">
+                    <img src="./public/logo.png" alt="Papini Fixadores Logo">
+                    <span class="whatsapp-status-dot"></span>
+                </div>
+                <div class="whatsapp-chat-profile-info">
+                    <span class="whatsapp-chat-name">Papini Fixadores</span>
+                    <span class="whatsapp-chat-status">Respondemos rápido no WhatsApp</span>
+                </div>
+            </div>
+            <button class="whatsapp-chat-close" id="whatsapp-chat-close-btn" aria-label="Fechar chat">&times;</button>
+        </div>
+        <!-- Body -->
+        <div class="whatsapp-chat-body">
+            <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="whatsapp-chat-card"
+               id="whatsapp-widget-cta">
+                <div class="whatsapp-chat-card-avatar">
+                    <span class="whatsapp-chat-dot-inner"></span>
+                </div>
+                <div class="whatsapp-chat-card-content">
+                    <span class="whatsapp-chat-card-title">Atendimento Online</span>
+                    <span class="whatsapp-chat-card-text">Olá! Como podemos ajudar com o seu orçamento de fixadores?</span>
+                    <span class="whatsapp-chat-card-link">Iniciar Conversa <i class="fa-solid fa-angle-right"></i></span>
+                </div>
+            </a>
+        </div>
+    </div>
+
     <!-- FLOATING WHATSAPP BUTTON -->
-    <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
-       target="_blank" 
-       rel="noopener noreferrer" 
-       class="whatsapp-float" 
-       id="whatsapp-floating-button"
-       aria-label="Chamar Papini Fixadores no WhatsApp">
+    <button class="whatsapp-float" 
+            id="whatsapp-floating-button"
+            aria-label="Abrir chat do WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    </button>
 
     <!-- SCRIPTS -->
     <script>
@@ -1401,14 +1610,39 @@
             }
         });
 
-        // 2. FLOATING WHATSAPP DELAYED ENTRANCE (2 Seconds)
+        // 2. FLOATING WHATSAPP DELAYED ENTRANCE (2 Seconds) & CHAT WIDGET TOGGLE
         window.addEventListener('DOMContentLoaded', () => {
+            const whatsappBtn = document.getElementById('whatsapp-floating-button');
+            const chatWidget = document.getElementById('whatsapp-chat-widget');
+            const chatCloseBtn = document.getElementById('whatsapp-chat-close-btn');
+
             setTimeout(() => {
-                const whatsappBtn = document.getElementById('whatsapp-floating-button');
                 if (whatsappBtn) {
                     whatsappBtn.classList.add('show');
                 }
             }, 2000);
+
+            // Auto-open chat widget after 5 seconds to capture attention
+            setTimeout(() => {
+                if (chatWidget && !chatWidget.classList.contains('open')) {
+                    chatWidget.classList.add('open');
+                }
+            }, 5000);
+
+            if (whatsappBtn && chatWidget) {
+                whatsappBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    chatWidget.classList.toggle('open');
+                });
+            }
+
+            if (chatCloseBtn && chatWidget) {
+                chatCloseBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    chatWidget.classList.remove('open');
+                });
+            }
         });
 
         // 3. STATS COUNT-UP ANIMATION WITH INTERSECTION OBSERVER
