@@ -23,14 +23,12 @@
     <!-- Font Awesome 6 CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-    <!-- Google Tag Manager (Analytics Ready) -->
-    <!-- 
+    <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-    -->
+    })(window,document,'script','dataLayer','GTM-N5MZSDJ8');</script>
     <!-- End Google Tag Manager -->
     
     <style>
@@ -996,6 +994,10 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N5MZSDJ8"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <!-- HEADER / NAVIGATION -->
     <header id="main-header">
@@ -1424,6 +1426,25 @@
                 stat.innerText = `${prefix}${target}${suffix}`;
             });
         }
+
+        // 4. GOOGLE ADS CONVERSION TRACKING
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+
+        function reportConversion() {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-18079327551/bHweCKjU37AcEL_K8qxD',
+                'value': 1.0,
+                'currency': 'BRL'
+            });
+        }
+
+        // Attach click listeners to all WhatsApp links
+        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+            link.addEventListener('click', () => {
+                reportConversion();
+            });
+        });
     </script>
 </body>
 </html>
