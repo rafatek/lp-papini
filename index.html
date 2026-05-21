@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papini Fixadores | Parafusos, Porcas e Fixadores em São Paulo</title>
+    <meta name="description" content="Fornecedor completo de fixadores industriais em São Paulo. Parafusos, porcas, arruelas, barras roscadas e chumbadores com certificação ASTM, ISO e DIN. Orçamento rápido pelo WhatsApp.">
+    
+    <!-- Open Graph tags for social preview / sharing -->
+    <meta property="og:title" content="Papini Fixadores | Parafusos, Porcas e Fixadores em São Paulo">
+    <meta property="og:description" content="Fornecedor completo de fixadores industriais em São Paulo. Parafusos, porcas, arruelas, barras roscadas e chumbadores com certificação ASTM, ISO e DIN.">
+    <meta property="og:image" content="./public/screws_bg.png">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./public/logo.jpeg" type="image/jpeg">
+
+    <!-- Google Fonts: Oswald for Headings & Source Sans 3 for Body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Google Tag Manager (Analytics Ready) -->
+    <!-- 
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+    -->
+    <!-- End Google Tag Manager -->
+    
+    <style>
+        /* CSS RESET & VARIABLES */
+        :root {
+            --primary-color: #03ABD8;
+            --primary-hover: #028eb4;
+            --dark-bg: #1A2A3A;
+            --dark-card: #223447;
+            --light-bg: #F4F6F8;
+            --text-main: #1A2A3A;
+            --text-sec: #6B7280;
+            --text-white: #FFFFFF;
+            --accent-orange: #F59E0B;
+            --whatsapp-green: #25D366;
+            --whatsapp-hover: #20ba5a;
+            --font-title: 'Oswald', sans-serif;
+            --font-body: 'Source Sans 3', sans-serif;
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 12px;
+            --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --container-padding: 0 1.5rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: var(--font-body);
+            color: var(--text-main);
+            background-color: var(--text-white);
+        }
+
+        body {
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-title);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* LAYOUT & CONTAINERS */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--container-padding);
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(26, 42, 58, 0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition-smooth);
+        }
+
+        header.scrolled {
+            background: rgba(26, 42, 58, 0.98);
+            padding: 0.5rem 0;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            transition: var(--transition-smooth);
+        }
+
+        header.scrolled .header-container {
+            height: 70px;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            background: var(--text-white);
+            padding: 6px 14px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-subtle);
+            transition: var(--transition-smooth);
+        }
+
+        .logo-box:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-box img {
+            height: 44px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        header.scrolled .logo-box img {
+            height: 38px;
+        }
+
+        .quick-contact {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+        }
+
+        .contact-item i {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .contact-item:hover {
+            color: var(--primary-color);
+        }
+
+        .header-cta {
+            background-color: var(--whatsapp-green);
+            color: var(--text-white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            transition: var(--transition-smooth);
+        }
+
+        .header-cta:hover {
+            background-color: var(--whatsapp-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        /* HERO SECTION */
+        #hero {
+            position: relative;
+            min-height: 95vh;
+            padding-top: 130px;
+            padding-bottom: 4rem;
+            background: linear-gradient(rgba(26, 42, 58, 0.88), rgba(26, 42, 58, 0.92)), url('./public/screws_bg.png') no-repeat center center / cover;
+            display: flex;
+            align-items: center;
+            color: var(--text-white);
+            overflow: hidden;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 750px;
+            z-index: 10;
+        }
+
+        .hero-badge-top {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(3, 171, 216, 0.15);
+            border: 1px solid rgba(3, 171, 216, 0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 300;
+        }
+
+        /* CTA BUTTONS */
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            background-color: var(--whatsapp-green);
+            color: var(--text-white);
+            padding: 1.1rem 2.2rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: skewX(-25deg);
+            transition: 0.75s;
+            opacity: 0;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--whatsapp-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.45);
+        }
+
+        .cta-btn:hover::after {
+            left: 125%;
+            opacity: 1;
+            transition: 0.75s ease;
+        }
+
+        .pulse-btn {
+            animation: pulseEffect 2s infinite;
+        }
+
+        @keyframes pulseEffect {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        .hero-badges-bottom {
+            margin-top: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .hero-badge-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-badge-item i {
+            color: var(--primary-color);
+        }
+
+        /* SECTION HEADERS */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark-bg);
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-sec);
+            font-size: 1.1rem;
+        }
+
+        /* PRODUCTS SECTION */
+        #produtos {
+            background-color: var(--text-white);
+        }
+
+        .produtos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .produto-card {
+            background-color: var(--text-white);
+            border-radius: var(--border-radius);
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .produto-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition-smooth);
+        }
+
+        .produto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .produto-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .produto-icon-wrapper {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: rgba(3, 171, 216, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: var(--transition-smooth);
+        }
+
+        .produto-card:hover .produto-icon-wrapper {
+            background-color: var(--primary-color);
+        }
+
+        .produto-icon-wrapper i {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            transition: var(--transition-smooth);
+        }
+
+        .produto-card:hover .produto-icon-wrapper i {
+            color: var(--text-white);
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        .produto-card h3 {
+            font-size: 1.4rem;
+            color: var(--dark-bg);
+            margin-bottom: 0.8rem;
+        }
+
+        .produto-card p {
+            color: var(--text-sec);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .produto-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: var(--transition-smooth);
+        }
+
+        .produto-link i {
+            font-size: 0.8rem;
+            transition: var(--transition-smooth);
+        }
+
+        .produto-card:hover .produto-link {
+            color: var(--primary-hover);
+        }
+
+        .produto-card:hover .produto-link i {
+            transform: translateX(5px);
+        }
+
+        /* DIFERENCIAIS SECTION */
+        #diferenciais {
+            background-color: var(--light-bg);
+        }
+
+        #diferenciais .section-header h2 {
+            color: var(--dark-bg);
+        }
+
+        .diferenciais-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .diferencial-card {
+            background-color: var(--text-white);
+            border-radius: var(--border-radius);
+            padding: 2.5rem 1.8rem;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid rgba(0, 0, 0, 0.01);
+            transition: var(--transition-smooth);
+            text-align: center;
+        }
+
+        .diferencial-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .diferencial-icon {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            display: inline-block;
+            transition: var(--transition-smooth);
+        }
+
+        .diferencial-card:hover .diferencial-icon {
+            transform: scale(1.15);
+        }
+
+        .diferencial-card h3 {
+            font-size: 1.15rem;
+            color: var(--dark-bg);
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .diferencial-card p {
+            color: var(--text-sec);
+            font-size: 0.9rem;
+        }
+
+        /* SOCIAL PROOF / STATS */
+        #social-proof {
+            background: linear-gradient(rgba(26, 42, 58, 0.95), rgba(26, 42, 58, 0.98)), url('./public/screws_bg.png') no-repeat center center / cover;
+            color: var(--text-white);
+            padding: 6rem 0;
+        }
+
+        #social-proof .section-header h2 {
+            color: var(--text-white);
+        }
+
+        #social-proof .section-header p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition-smooth);
+        }
+
+        .stat-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(3, 171, 216, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .stat-number {
+            font-family: var(--font-title);
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .stat-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.85);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        /* CTA FINAL SECTION */
+        #cta-final {
+            background-color: var(--text-white);
+            text-align: center;
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        #cta-final .cta-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--light-bg);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+        }
+
+        #cta-final h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--dark-bg);
+        }
+
+        #cta-final p {
+            font-size: 1.2rem;
+            color: var(--text-sec);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--text-white);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            background: var(--text-white);
+            padding: 6px 14px;
+            border-radius: 8px;
+            margin-bottom: 1.2rem;
+            display: inline-block;
+        }
+
+        .footer-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-socials a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-white);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-socials a:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-white);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 35px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            transform: translateX(4px);
+        }
+
+        .footer-contact {
+            list-style: none;
+        }
+
+        .footer-contact li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .footer-contact li i {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .footer-contact li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-contact li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        /* FLOATING WHATSAPP BUTTON */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--whatsapp-green);
+            color: var(--text-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: translateY(100px) scale(0);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .whatsapp-float.show {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .whatsapp-float:hover {
+            background-color: var(--whatsapp-hover);
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+        }
+
+        /* Tooltip style */
+        .whatsapp-float::before {
+            content: "Falar no WhatsApp";
+            position: absolute;
+            right: 75px;
+            background-color: var(--dark-bg);
+            color: var(--text-white);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.5rem 0.8rem;
+            border-radius: 6px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .whatsapp-float:hover::before {
+            opacity: 1;
+            right: 70px;
+        }
+
+        /* RESPONSIVE DESIGN - MEDIA QUERIES (MOBILE FIRST) */
+        
+        /* Mobile max (under 768px) */
+        @media (max-width: 767px) {
+            section {
+                padding: 3.5rem 0;
+            }
+
+            .quick-contact {
+                display: none; /* Hide quick phone list, keep logo and CTA in header */
+            }
+
+            .logo-box {
+                padding: 4px 10px;
+            }
+
+            .logo-box img {
+                height: 34px;
+            }
+
+            .header-container {
+                height: 65px;
+            }
+            
+            header.scrolled .header-container {
+                height: 60px;
+            }
+
+            #hero {
+                padding-top: 100px;
+                min-height: 80vh;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.05rem;
+                margin-bottom: 2rem;
+            }
+
+            .cta-btn {
+                padding: 0.9rem 1.8rem;
+                font-size: 1.05rem;
+                width: 100%;
+            }
+
+            .hero-badges-bottom {
+                justify-content: center;
+                gap: 0.8rem;
+            }
+
+            .hero-badge-item {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .section-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .produtos-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .diferenciais-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 3.2rem;
+            }
+
+            #cta-final h2 {
+                font-size: 2rem;
+            }
+
+            #cta-final p {
+                font-size: 1.05rem;
+            }
+
+            #cta-final .cta-wrapper {
+                padding: 2.5rem 1.2rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .whatsapp-float::before {
+                display: none; /* Hide tooltip on mobile */
+            }
+        }
+
+        /* Tablets (768px to 1023px) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            #hero {
+                text-align: center;
+            }
+
+            .hero-content {
+                margin: 0 auto;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-badges-bottom {
+                justify-content: center;
+            }
+
+            .produtos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .diferenciais-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1.2fr 1fr;
+            }
+
+            .footer-grid > :first-child {
+                grid-column: span 2;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION -->
+    <header id="main-header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <a href="#hero" class="logo-box" aria-label="Voltar ao topo - Papini Fixadores">
+                <img src="./public/logo.jpeg" alt="Papini Fixadores">
+            </a>
+
+            <!-- Quick Contacts -->
+            <div class="quick-contact">
+                <a href="tel:1120361547" class="contact-item" title="Ligue para nós">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>(11) 2036-1547</span>
+                </a>
+                <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="contact-item" 
+                   title="Chame no WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>(11) 95374-4617</span>
+                </a>
+                <!-- Header CTA Button -->
+                <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="header-cta"
+                   id="header-cta-btn">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Orçamento
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION 1: HERO -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge-top">
+                    <i class="fa-solid fa-industry"></i> Distribuidor de Fixadores Industriais
+                </div>
+                <h1>Fixadores de Qualidade para Quem <span>Não Pode Parar</span></h1>
+                <p>
+                    Parafusos, porcas, arruelas, barras roscadas, chumbadores e muito mais. 
+                    Atendimento ágil, orçamento rápido e certificação ASTM, ISO e DIN.
+                </p>
+                <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="cta-btn pulse-btn"
+                   id="hero-cta-btn">
+                    <i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp agora
+                </a>
+                <div class="hero-badges-bottom">
+                    <div class="hero-badge-item">
+                        <i class="fa-solid fa-circle-check"></i> Sem compromisso
+                    </div>
+                    <div class="hero-badge-item">
+                        <i class="fa-solid fa-circle-check"></i> Resposta rápida
+                    </div>
+                    <div class="hero-badge-item">
+                        <i class="fa-solid fa-circle-check"></i> +7 anos de experiência
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: PRODUCTS -->
+    <section id="produtos">
+        <div class="container">
+            <div class="section-header">
+                <h2>Linha Completa de Fixadores</h2>
+                <p>Amplo catálogo de produtos de alta durabilidade e precisão para construção, indústrias e comércio.</p>
+            </div>
+            
+            <div class="produtos-grid">
+                <!-- Parafusos -->
+                <div class="produto-card">
+                    <div>
+                        <div class="produto-icon-wrapper">
+                            <i class="fa-solid fa-screwdriver"></i>
+                        </div>
+                        <h3>Parafusos</h3>
+                        <p>Sextavados, Allen, Fendados, Especiais, e muito mais. Diversas classes de resistência.</p>
+                    </div>
+                    <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="produto-link"
+                       id="prod-parafusos-cta">
+                        Cotar Parafusos <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Porcas -->
+                <div class="produto-card">
+                    <div>
+                        <div class="produto-icon-wrapper">
+                            <i class="fa-solid fa-gear"></i>
+                        </div>
+                        <h3>Porcas</h3>
+                        <p>Sextavada, Travante, Flangeada, Calota, Borboleta, entre outros modelos industriais.</p>
+                    </div>
+                    <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="produto-link"
+                       id="prod-porcas-cta">
+                        Cotar Porcas <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Arruelas -->
+                <div class="produto-card">
+                    <div>
+                        <div class="produto-icon-wrapper">
+                            <i class="fa-solid fa-circle-dot"></i>
+                        </div>
+                        <h3>Arruelas</h3>
+                        <p>Lisa, de Pressão, Especial, Dentada e de Funileiro. Alta área de suporte e proteção.</p>
+                    </div>
+                    <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="produto-link"
+                       id="prod-arruelas-cta">
+                        Cotar Arruelas <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Barras Roscadas -->
+                <div class="produto-card">
+                    <div>
+                        <div class="produto-icon-wrapper">
+                            <i class="fa-solid fa-ruler"></i>
+                        </div>
+                        <h3>Barras Roscadas</h3>
+                        <p>Barras de 1 ou 2 metros, em acabamento Zincado, Inox, Galvanizado a Fogo e ASTM.</p>
+                    </div>
+                    <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="produto-link"
+                       id="prod-barras-cta">
+                        Cotar Barras <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Chumbadores -->
+                <div class="produto-card">
+                    <div>
+                        <div class="produto-icon-wrapper">
+                            <i class="fa-solid fa-cubes"></i>
+                        </div>
+                        <h3>Chumbadores</h3>
+                        <p>Modelos mecânicos (CBA, Jaqueta e Cone, Bolt) e fixação química para ancoragem pesada.</p>
+                    </div>
+                    <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="produto-link"
+                       id="prod-chumbadores-cta">
+                        Cotar Chumbadores <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Outros Itens -->
+                <div class="produto-card">
+                    <div>
+                        <div class="produto-icon-wrapper">
+                            <i class="fa-solid fa-wrench"></i>
+                        </div>
+                        <h3>Outros Itens</h3>
+                        <p>Buchas, Abraçadeiras, anéis de retenção, peças em Latão, Bronze e Inox sob medida.</p>
+                    </div>
+                    <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="produto-link"
+                       id="prod-outros-cta">
+                        Cotar Outros <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: DIFFERENTIALS -->
+    <section id="diferenciais">
+        <div class="container">
+            <div class="section-header">
+                <h2>Por que escolher a Papini Fixadores?</h2>
+                <p>Nossa dedicação é atender a sua indústria com máxima eficiência, do orçamento à entrega.</p>
+            </div>
+            
+            <div class="diferenciais-grid">
+                <!-- Agilidade -->
+                <div class="diferencial-card">
+                    <span class="diferencial-icon"><i class="fa-solid fa-bolt-lightning"></i></span>
+                    <h3>Agilidade no Atendimento</h3>
+                    <p>Orçamentos respondidos com rapidez extrema para manter seus projetos em andamento, sem gargalos.</p>
+                </div>
+
+                <!-- Qualidade -->
+                <div class="diferencial-card">
+                    <span class="diferencial-icon"><i class="fa-solid fa-certificate"></i></span>
+                    <h3>Qualidade Certificada</h3>
+                    <p>Garantia de segurança com lotes certificados sob rígidas normas técnicas nacionais e internacionais (ASTM, ISO e DIN).</p>
+                </div>
+
+                <!-- Soluções Completas -->
+                <div class="diferencial-card">
+                    <span class="diferencial-icon"><i class="fa-solid fa-boxes-stacked"></i></span>
+                    <h3>Soluções Completas</h3>
+                    <p>Forte mix de estoque disponível imediatamente para atender engenharia civil, indústrias petroquímicas, navais e muito mais.</p>
+                </div>
+
+                <!-- Peças Especiais -->
+                <div class="diferencial-card">
+                    <span class="diferencial-icon"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                    <h3>Peças Sob Medida</h3>
+                    <p>Fabricação e fornecimento de parafusos e fixadores especiais mediante desenhos técnicos ou amostras fornecidas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: SOCIAL PROOF / STATS -->
+    <section id="social-proof">
+        <div class="container">
+            <div class="section-header">
+                <h2>Números que falam por si</h2>
+                <p>Confiança construída com solidez e excelência operacional ao longo do tempo.</p>
+            </div>
+            
+            <div class="stats-grid">
+                <!-- Experiência -->
+                <div class="stat-item">
+                    <span class="stat-number" data-target="7" data-prefix="+" data-suffix=" anos">+0 anos</span>
+                    <span class="stat-description">De Experiência no Setor</span>
+                </div>
+
+                <!-- Linhas -->
+                <div class="stat-item">
+                    <span class="stat-number" data-target="6" data-prefix="" data-suffix=" linhas">0 linhas</span>
+                    <span class="stat-description">Linhas de Produtos Especializados</span>
+                </div>
+
+                <!-- Certificados -->
+                <div class="stat-item">
+                    <span class="stat-number">ASTM · ISO · DIN</span>
+                    <span class="stat-description">Certificações de Qualidade</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: CTA FINAL -->
+    <section id="cta-final">
+        <div class="container">
+            <div class="cta-wrapper">
+                <h2>Pronto para fazer seu pedido?</h2>
+                <p>Fale agora com nosso setor de vendas. Envie sua lista de itens e receba um orçamento personalizado sem compromisso.</p>
+                <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="cta-btn pulse-btn"
+                   id="footer-cta-btn">
+                    <i class="fa-brands fa-whatsapp"></i> Solicitar orçamento pelo WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Info/Logo -->
+                <div>
+                    <div class="footer-logo">
+                        <img src="./public/logo.jpeg" alt="Papini Fixadores">
+                    </div>
+                    <p class="footer-desc">
+                        Distribuição e fabricação de fixadores para indústrias, metalúrgicas, montagens industriais e revendedores. Tradição e qualidade que sustentam suas grandes obras.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links rápidos -->
+                <div>
+                    <h3 class="footer-title">Navegação</h3>
+                    <ul class="footer-links">
+                        <li><a href="#hero"><i class="fa-solid fa-angle-right"></i> Topo</a></li>
+                        <li><a href="#produtos"><i class="fa-solid fa-angle-right"></i> Produtos</a></li>
+                        <li><a href="#diferenciais"><i class="fa-solid fa-angle-right"></i> Diferenciais</a></li>
+                        <li><a href="#social-proof"><i class="fa-solid fa-angle-right"></i> Prova Social</a></li>
+                        <li><a href="#cta-final"><i class="fa-solid fa-angle-right"></i> Fale Conosco</a></li>
+                    </ul>
+                </div>
+
+                <!-- Dados de contato -->
+                <div>
+                    <h3 class="footer-title">Contato e Endereço</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Av. Casa Grande, nº 275A – Sapopemba, São Paulo – SP – CEP 03260-000</span>
+                        </li>
+                        <li>
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." target="_blank" rel="noopener noreferrer">(11) 95374-4617</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <a href="tel:1120361547">(11) 2036-1547</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <a href="mailto:vendas@papinifixadores.com.br">vendas@papinifixadores.com.br</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom footer -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 Papini Fixadores. Todos os direitos reservados.</p>
+                <p>Desenvolvido com foco em alta performance e conversão Google Ads.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="whatsapp-float" 
+       id="whatsapp-floating-button"
+       aria-label="Chamar Papini Fixadores no WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- SCRIPTS -->
+    <script>
+        // 1. HEADER SCROLL SHADOW / RESIZE
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 2. FLOATING WHATSAPP DELAYED ENTRANCE (2 Seconds)
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const whatsappBtn = document.getElementById('whatsapp-floating-button');
+                if (whatsappBtn) {
+                    whatsappBtn.classList.add('show');
+                }
+            }, 2000);
+        });
+
+        // 3. STATS COUNT-UP ANIMATION WITH INTERSECTION OBSERVER
+        const startCounterAnimation = (element) => {
+            const target = parseInt(element.getAttribute('data-target'), 10);
+            const prefix = element.getAttribute('data-prefix') || '';
+            const suffix = element.getAttribute('data-suffix') || '';
+            const duration = 2000; // 2 seconds animation
+            const startTime = performance.now();
+
+            const updateCount = (currentTime) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Ease out cubic function
+                const easeProgress = 1 - Math.pow(1 - progress, 3);
+                
+                const currentValue = Math.floor(easeProgress * target);
+                element.innerText = `${prefix}${currentValue}${suffix}`;
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCount);
+                } else {
+                    element.innerText = `${prefix}${target}${suffix}`;
+                }
+            };
+
+            requestAnimationFrame(updateCount);
+        };
+
+        const setupStatsObserver = () => {
+            const stats = document.querySelectorAll('.stat-number[data-target]');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        startCounterAnimation(entry.target);
+                        observer.unobserve(entry.target); // Trigger only once
+                    }
+                });
+            }, {
+                threshold: 0.5 // Trigger when 50% visible
+            });
+
+            stats.forEach(stat => observer.observe(stat));
+        };
+
+        if ('IntersectionObserver' in window) {
+            setupStatsObserver();
+        } else {
+            // Fallback for older browsers
+            document.querySelectorAll('.stat-number[data-target]').forEach(stat => {
+                const target = stat.getAttribute('data-target');
+                const prefix = stat.getAttribute('data-prefix') || '';
+                const suffix = stat.getAttribute('data-suffix') || '';
+                stat.innerText = `${prefix}${target}${suffix}`;
+            });
+        }
+    </script>
+</body>
+</html>
