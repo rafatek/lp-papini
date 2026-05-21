@@ -92,26 +92,26 @@ header.scrolled .header-container {
 .logo-box {
     display: flex;
     align-items: center;
-    background: var(--text-white);
-    padding: 6px 14px;
-    border-radius: 8px;
-    box-shadow: var(--shadow-subtle);
     transition: var(--transition-smooth);
+    overflow: hidden;
 }
 
 .logo-box:hover {
-    transform: scale(1.02);
+    transform: scale(1.05);
 }
 
 .logo-box img {
-    height: 44px;
+    height: 130px;
     width: auto;
+    margin: -43px -36px -47px -31px;
     object-fit: contain;
     display: block;
+    transition: var(--transition-smooth);
 }
 
 header.scrolled .logo-box img {
-    height: 38px;
+    height: 110px;
+    margin: -36px -31px -40px -27px;
 }
 
 .quick-contact {
@@ -640,15 +640,19 @@ footer {
     margin-bottom: 3rem;
 }
 
+.footer-logo {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+    margin-bottom: 1.2rem;
+}
+
 .footer-logo img {
-    height: 48px;
+    height: 130px;
     width: auto;
     object-fit: contain;
-    background: var(--text-white);
-    padding: 6px 14px;
-    border-radius: 8px;
-    margin-bottom: 1.2rem;
-    display: inline-block;
+    margin: -43px -36px -47px -31px;
+    display: block;
 }
 
 .footer-desc {
@@ -1010,11 +1014,12 @@ footer {
     }
 
     .logo-box {
-        padding: 4px 10px;
+        padding: 0;
     }
 
     .logo-box img {
-        height: 34px;
+        height: 90px;
+        margin: -30px -25px -32px -22px;
     }
 
     .header-container {
