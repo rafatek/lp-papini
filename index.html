@@ -397,13 +397,11 @@
         .produto-card {
             background-color: var(--text-white);
             border-radius: var(--border-radius);
-            padding: 2.5rem 2rem;
             box-shadow: var(--shadow-subtle);
             border: 1px solid rgba(0, 0, 0, 0.03);
             transition: var(--transition-smooth);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             position: relative;
             overflow: hidden;
         }
@@ -419,6 +417,7 @@
             transform: scaleX(0);
             transform-origin: left;
             transition: var(--transition-smooth);
+            z-index: 10;
         }
 
         .produto-card:hover {
@@ -430,44 +429,68 @@
             transform: scaleX(1);
         }
 
-        .produto-icon-wrapper {
-            width: 70px;
-            height: 70px;
+        .produto-img-container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background-color: #f7f9fa;
+        }
+
+        .produto-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .produto-card:hover .produto-img {
+            transform: scale(1.08);
+        }
+
+        .produto-icon-badge {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
-            background-color: rgba(3, 171, 216, 0.08);
+            background-color: var(--primary-color);
+            color: var(--text-white);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            border: 2px solid var(--text-white);
             transition: var(--transition-smooth);
+            z-index: 2;
         }
 
-        .produto-card:hover .produto-icon-wrapper {
-            background-color: var(--primary-color);
-        }
-
-        .produto-icon-wrapper i {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            transition: var(--transition-smooth);
-        }
-
-        .produto-card:hover .produto-icon-wrapper i {
-            color: var(--text-white);
+        .produto-card:hover .produto-icon-badge {
+            background-color: var(--dark-bg);
             transform: rotate(15deg) scale(1.1);
         }
 
+        .produto-content {
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
         .produto-card h3 {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--dark-bg);
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
         }
 
         .produto-card p {
             color: var(--text-sec);
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             margin-bottom: 1.5rem;
-            flex-grow: 1;
+            line-height: 1.5;
         }
 
         .produto-link {
@@ -1079,110 +1102,128 @@
             <div class="produtos-grid">
                 <!-- Parafusos -->
                 <div class="produto-card">
-                    <div>
-                        <div class="produto-icon-wrapper">
+                    <div class="produto-img-container">
+                        <img src="./public/produtos/Parafuso%20sextavado%20A%C3%87O%20INOX.avif" alt="Parafusos Industriais" class="produto-img" loading="lazy">
+                        <div class="produto-icon-badge">
                             <i class="fa-solid fa-screwdriver"></i>
                         </div>
-                        <h3>Parafusos</h3>
-                        <p>Sextavados, Allen, Fendados, Especiais, e muito mais. Diversas classes de resistência.</p>
                     </div>
-                    <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="produto-link"
-                       id="prod-parafusos-cta">
-                        Cotar Parafusos <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+                    <div class="produto-content">
+                        <h3>Parafusos</h3>
+                        <p>Sextavados, Allen, Fendados, Rosca Soberba e Especiais em Aço Carbono e Inox.</p>
+                        <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="produto-link"
+                           id="prod-parafusos-cta">
+                            Cotar Parafusos <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Porcas -->
                 <div class="produto-card">
-                    <div>
-                        <div class="produto-icon-wrapper">
+                    <div class="produto-img-container">
+                        <img src="./public/produtos/Porca%20sextavada%20zincada%20milimetro.avif" alt="Porcas Sextavadas e Travantes" class="produto-img" loading="lazy">
+                        <div class="produto-icon-badge">
                             <i class="fa-solid fa-gear"></i>
                         </div>
-                        <h3>Porcas</h3>
-                        <p>Sextavada, Travante, Flangeada, Calota, Borboleta, entre outros modelos industriais.</p>
                     </div>
-                    <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="produto-link"
-                       id="prod-porcas-cta">
-                        Cotar Porcas <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+                    <div class="produto-content">
+                        <h3>Porcas</h3>
+                        <p>Sextavada, Travante com Nylon, Flangeada, Calota e Borboleta (Milímetro e Polegada).</p>
+                        <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="produto-link"
+                           id="prod-porcas-cta">
+                            Cotar Porcas <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Arruelas -->
                 <div class="produto-card">
-                    <div>
-                        <div class="produto-icon-wrapper">
+                    <div class="produto-img-container">
+                        <img src="./public/produtos/Arruelas%20Lisas,%20Zincadas%20e%20Etc.avif" alt="Arruelas Lisas e de Pressão" class="produto-img" loading="lazy">
+                        <div class="produto-icon-badge">
                             <i class="fa-solid fa-circle-dot"></i>
                         </div>
+                    </div>
+                    <div class="produto-content">
                         <h3>Arruelas</h3>
                         <p>Lisa, de Pressão, Especial, Dentada e de Funileiro. Alta área de suporte e proteção.</p>
+                        <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="produto-link"
+                           id="prod-arruelas-cta">
+                            Cotar Arruelas <i class="fa-solid fa-arrow-right"></i>
+                        </a>
                     </div>
-                    <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="produto-link"
-                       id="prod-arruelas-cta">
-                        Cotar Arruelas <i class="fa-solid fa-arrow-right"></i>
-                    </a>
                 </div>
 
                 <!-- Barras Roscadas -->
                 <div class="produto-card">
-                    <div>
-                        <div class="produto-icon-wrapper">
+                    <div class="produto-img-container">
+                        <img src="./public/produtos/Varios%20modelos%20de%20Barras%20Roscadas.avif" alt="Barras Roscadas" class="produto-img" loading="lazy">
+                        <div class="produto-icon-badge">
                             <i class="fa-solid fa-ruler"></i>
                         </div>
+                    </div>
+                    <div class="produto-content">
                         <h3>Barras Roscadas</h3>
                         <p>Barras de 1 ou 2 metros, em acabamento Zincado, Inox, Galvanizado a Fogo e ASTM.</p>
+                        <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="produto-link"
+                           id="prod-barras-cta">
+                            Cotar Barras <i class="fa-solid fa-arrow-right"></i>
+                        </a>
                     </div>
-                    <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="produto-link"
-                       id="prod-barras-cta">
-                        Cotar Barras <i class="fa-solid fa-arrow-right"></i>
-                    </a>
                 </div>
 
                 <!-- Chumbadores -->
                 <div class="produto-card">
-                    <div>
-                        <div class="produto-icon-wrapper">
+                    <div class="produto-img-container">
+                        <img src="./public/produtos/Chubadores.avif" alt="Chumbadores de Ancoragem" class="produto-img" loading="lazy">
+                        <div class="produto-icon-badge">
                             <i class="fa-solid fa-cubes"></i>
                         </div>
+                    </div>
+                    <div class="produto-content">
                         <h3>Chumbadores</h3>
                         <p>Modelos mecânicos (CBA, Jaqueta e Cone, Bolt) e fixação química para ancoragem pesada.</p>
+                        <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="produto-link"
+                           id="prod-chumbadores-cta">
+                            Cotar Chumbadores <i class="fa-solid fa-arrow-right"></i>
+                        </a>
                     </div>
-                    <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="produto-link"
-                       id="prod-chumbadores-cta">
-                        Cotar Chumbadores <i class="fa-solid fa-arrow-right"></i>
-                    </a>
                 </div>
 
                 <!-- Outros Itens -->
                 <div class="produto-card">
-                    <div>
-                        <div class="produto-icon-wrapper">
+                    <div class="produto-img-container">
+                        <img src="./public/produtos/Parafusos%20Especiais%20-%20Fabricamos%20produtos%20Sob%20Medida.avif" alt="Peças Especiais e Outros Fixadores" class="produto-img" loading="lazy">
+                        <div class="produto-icon-badge">
                             <i class="fa-solid fa-wrench"></i>
                         </div>
-                        <h3>Outros Itens</h3>
-                        <p>Buchas, Abraçadeiras, anéis de retenção, peças em Latão, Bronze e Inox sob medida.</p>
                     </div>
-                    <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="produto-link"
-                       id="prod-outros-cta">
-                        Cotar Outros <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+                    <div class="produto-content">
+                        <h3>Peças Especiais e Outros</h3>
+                        <p>Buchas, Abraçadeiras, anéis de retenção, e fabricação de itens sob medida em Latão e Bronze.</p>
+                        <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais." 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="produto-link"
+                           id="prod-outros-cta">
+                            Cotar Outros <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
