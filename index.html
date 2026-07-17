@@ -392,44 +392,11 @@
         </div>
     </footer>
 
-    <!-- WHATSAPP CHAT WIDGET -->
-    <div class="whatsapp-chat-container" id="whatsapp-chat-widget">
-        <!-- Header -->
-        <div class="whatsapp-chat-header">
-            <div class="whatsapp-chat-profile">
-                <div class="whatsapp-avatar-container">
-                    <img src="./public/logo.png" alt="Papini Fixadores Logo">
-                    <span class="whatsapp-status-dot"></span>
-                </div>
-                <div class="whatsapp-chat-profile-info">
-                    <span class="whatsapp-chat-name">Papini Fixadores</span>
-                    <span class="whatsapp-chat-status">Respondemos rápido no WhatsApp</span>
-                </div>
-            </div>
-            <button class="whatsapp-chat-close" id="whatsapp-chat-close-btn" aria-label="Fechar chat">&times;</button>
-        </div>
-        <!-- Body -->
-        <div class="whatsapp-chat-body">
-            <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais."
-                target="_blank" rel="noopener noreferrer" class="whatsapp-chat-card" id="whatsapp-widget-cta">
-                <div class="whatsapp-chat-card-avatar">
-                    <span class="whatsapp-chat-dot-inner"></span>
-                </div>
-                <div class="whatsapp-chat-card-content">
-                    <span class="whatsapp-chat-card-title">Atendimento Online</span>
-                    <span class="whatsapp-chat-card-text">Olá! Como podemos ajudar com o seu orçamento de
-                        fixadores?</span>
-                    <span class="whatsapp-chat-card-link">Solicitar orçamento pelo WhatsApp <i
-                            class="fa-solid fa-angle-right"></i></span>
-                </div>
-            </a>
-        </div>
-    </div>
-
     <!-- FLOATING WHATSAPP BUTTON -->
-    <button class="whatsapp-float" id="whatsapp-floating-button" aria-label="Abrir chat do WhatsApp">
+    <a href="https://wa.me/5511953744617?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20saber%20mais."
+        target="_blank" rel="noopener noreferrer" class="whatsapp-float" id="whatsapp-floating-button" aria-label="Falar no WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
-    </button>
+    </a>
 
     <!-- SCRIPTS -->
     <script>
@@ -443,39 +410,15 @@
             }
         });
 
-        // 2. FLOATING WHATSAPP DELAYED ENTRANCE (2 Seconds) & CHAT WIDGET TOGGLE
+        // 2. FLOATING WHATSAPP DELAYED ENTRANCE (2 Seconds)
         window.addEventListener('DOMContentLoaded', () => {
             const whatsappBtn = document.getElementById('whatsapp-floating-button');
-            const chatWidget = document.getElementById('whatsapp-chat-widget');
-            const chatCloseBtn = document.getElementById('whatsapp-chat-close-btn');
 
             setTimeout(() => {
                 if (whatsappBtn) {
                     whatsappBtn.classList.add('show');
                 }
             }, 2000);
-
-            // Auto-open chat widget after 5 seconds to capture attention
-            setTimeout(() => {
-                if (chatWidget && !chatWidget.classList.contains('open')) {
-                    chatWidget.classList.add('open');
-                }
-            }, 5000);
-
-            if (whatsappBtn && chatWidget) {
-                whatsappBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    chatWidget.classList.toggle('open');
-                });
-            }
-
-            if (chatCloseBtn && chatWidget) {
-                chatCloseBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    chatWidget.classList.remove('open');
-                });
-            }
         });
 
         // 3. STATS COUNT-UP ANIMATION WITH INTERSECTION OBSERVER
