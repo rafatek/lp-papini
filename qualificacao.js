@@ -86,10 +86,18 @@ async function selectValorPedidoAndSubmit(valor) {
         await new Promise(resolve => setTimeout(resolve, 1000));
     }
 
-    // Redirect Logic
+    // Redirect Logic (Comentado temporariamente para testes de Webhook)
+    /*
     if (leadData.tipoPessoa === 'Pessoa Jurídica' && leadData.valorPedido === 'Acima de R$100') {
         window.location.href = 'obrigado.html';
     } else {
         window.location.href = 'recuperacao.html';
+    }
+    */
+    
+    // Mostra mensagem de sucesso no lugar de redirecionar
+    const loadingStep = document.getElementById('lead-step-loading');
+    if(loadingStep) {
+        loadingStep.innerHTML = '<i class="fa-solid fa-circle-check" style="font-size: 3rem; color: #25D366;"></i><h3 style="margin-top:1rem; font-family: var(--font-body); font-weight: normal;">Dados enviados! Verifique o Webhook.</h3>';
     }
 }
