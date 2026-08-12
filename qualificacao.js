@@ -69,23 +69,25 @@ async function selectValorPedidoAndSubmit(valor) {
     try {
         const webhookUrl = "https://backend.leylim.com.br/api/webhooks/f9b17591-ac54-4e9e-a012-a23d310b5bda";
         
-        // Enviando como Form Data para evitar bloqueio de CORS (preflight OPTIONS) em arquivos locais
-        const formData = new URLSearchParams();
-        formData.append("nome", leadData.nome);
-        formData.append("telefone", leadData.telefone);
-        formData.append("tipoPessoa", leadData.tipoPessoa);
-        formData.append("valorPedido", leadData.valorPedido);
-
-        await fetch(webhookUrl, {
+        // Enviando como JSON puro, que é o padrão de APIs e Webhooks
+        const response = await fetch(webhookUrl, {
             method: 'POST',
-            body: formData
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(leadData)
         });
 
-        // Pequeno atraso para garantir que a requisição saia antes de redirecionar
-        await new Promise(resolve => setTimeout(resolve, 500));
+        console.log("Status do Webhook:", response.status);
+
+        // Atraso de segurança de 1 segundo para garantir que a requisição finalize completamente
+        await new Promise(resolve => setTimeout(resolve, 1000));
 
     } catch (error) {
-        console.error("Erro ao enviar lead para o webhook:", error);
+        console.error("Erro crítico no envio para o webhook:", error);
+        // Mesmo com erro, atrasa 1 segundo para visualizarmos a requisição no painel
+        await new Promise(resolve => setTimeout(resolve, 1000));
     }
 
     // Redirect Logic
