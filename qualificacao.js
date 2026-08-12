@@ -68,35 +68,31 @@ async function selectValorPedidoAndSubmit(valor) {
     // Webhook POST
     try {
         const targetUrl = "https://backend.leylim.com.br/api/webhooks/f9b17591-ac54-4e9e-a012-a23d310b5bda";
-        // Utilizamos um Proxy CORS para forçar a passagem do JSON sem ser bloqueado pelo servidor de destino
-        const webhookUrl = "https://corsproxy.io/?" + encodeURIComponent(targetUrl);
         
         console.log("Iniciando disparo para o webhook...");
-        console.log("Dados que serão enviados:", leadData);
 
-        const response = await fetch(webhookUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(leadData)
-        });
-
-        console.log("Resposta bruta do servidor:", response);
+        // O backend da Leylim sofre de um erro interno (Crash 500) ao receber requisições preflight OPTIONS (CORS).
+        // Portanto, a ÚNICA maneira de enviar do frontend é através de um 'simple request' que não dispara OPTIONS.
+        // Convertendo os dados para formulário e utilizando mode: 'no-cors' para o navegador ignorar a falta de cabeçalhos de resposta.
         
-        if (response.ok) {
-            console.log("Webhook acionado com sucesso (Status 200).");
-        } else {
-            console.error("O webhook retornou um erro (Status " + response.status + ").");
+        const params = new URLSearchParams();
+        for (const key in leadData) {
+            params.append(key, leadData[key]);
         }
 
-        // Atraso de segurança de 1 segundo
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await fetch(targetUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: params // O navegador envia como application/x-www-form-urlencoded automaticamente
+        });
+
+        console.log("Requisição enviada (Opaque Request). Como usamos no-cors, o disparo foi feito sem travas.");
+
+        // Atraso de segurança para garantir a entrega
+        await new Promise(resolve => setTimeout(resolve, 1500));
 
     } catch (error) {
         console.error("Erro crítico na requisição Fetch:", error);
-        alert("Ocorreu um erro no disparo: " + error.message);
-        await new Promise(resolve => setTimeout(resolve, 1000));
     }
 
     // Redirect Logic (Comentado temporariamente para testes de Webhook)
