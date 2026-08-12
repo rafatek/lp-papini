@@ -65,57 +65,30 @@ async function selectValorPedidoAndSubmit(valor) {
     // Show loading state
     showStep('loading');
 
-    const targetUrl = "https://backend.leylim.com.br/api/webhooks/f9b17591-ac54-4e9e-a012-a23d310b5bda";
-    console.log("Iniciando disparo modo raiz (Formulário Oculto) para o webhook...");
+    // Webhook POST para o n8n
+    try {
+        const targetUrl = "https://webhook.assessoriaturbodigital.com.br/webhook/9e35ed84-b80d-4b28-b8eb-a1d54147c051";
+        
+        console.log("Iniciando envio para o n8n...");
 
-    // Cria um Iframe invisível (Isso impede que a página mude de tela quando o formulário for enviado)
-    let iframe = document.getElementById('hidden-webhook-frame');
-    if (!iframe) {
-        iframe = document.createElement('iframe');
-        iframe.id = 'hidden-webhook-frame';
-        iframe.name = 'hidden-webhook-frame';
-        iframe.style.display = 'none';
-        document.body.appendChild(iframe);
+        await fetch(targetUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(leadData)
+        });
+
+        console.log("Requisição concluída!");
+
+    } catch (error) {
+        console.error("Erro na requisição Fetch:", error);
     }
 
-    // Cria o formulário HTML raiz
-    let form = document.createElement('form');
-    form.action = targetUrl;
-    form.method = 'POST';
-    form.target = 'hidden-webhook-frame'; // Aponta o envio para o Iframe
-
-    // Preenche o formulário com os dados do Lead
-    for (const key in leadData) {
-        let input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = key;
-        input.value = leadData[key];
-        form.appendChild(input);
+    // Redirect Logic restaurada
+    if (leadData.tipoPessoa === 'Pessoa Jurídica' && leadData.valorPedido === 'Acima de R$100') {
+        window.location.href = 'obrigado.html';
+    } else {
+        window.location.href = 'recuperacao.html';
     }
-
-    // Adiciona na tela, clica em enviar, e remove da tela
-    document.body.appendChild(form);
-    form.submit();
-    
-    console.log("Formulário disparado com sucesso!");
-
-    // Pequeno atraso para simular o carregamento antes de redirecionar o usuário
-    setTimeout(() => {
-        document.body.removeChild(form);
-        
-    // Redireciona com base nas regras (Comentado para debug)
-        /*
-        if (leadData.tipoPessoa === 'Pessoa Jurídica' && leadData.valorPedido === 'Acima de R$100') {
-            window.location.href = 'obrigado.html';
-        } else {
-            window.location.href = 'recuperacao.html';
-        }
-        */
-        
-        // Mantém a tela congelada com mensagem de sucesso para ver o que aparece no Network/Console
-        const loadingStep = document.getElementById('lead-step-loading');
-        if(loadingStep) {
-            loadingStep.innerHTML = '<i class="fa-solid fa-circle-check" style="font-size: 3rem; color: #25D366;"></i><h3 style="margin-top:1rem; font-family: var(--font-body); font-weight: normal;">Enviado! Verifique o console/network.</h3>';
-        }
-    }, 1500);
 }
