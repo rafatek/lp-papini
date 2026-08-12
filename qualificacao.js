@@ -67,7 +67,9 @@ async function selectValorPedidoAndSubmit(valor) {
 
     // Webhook POST
     try {
-        const webhookUrl = "https://backend.leylim.com.br/api/webhooks/f9b17591-ac54-4e9e-a012-a23d310b5bda";
+        const targetUrl = "https://backend.leylim.com.br/api/webhooks/f9b17591-ac54-4e9e-a012-a23d310b5bda";
+        // Utilizamos um Proxy CORS para forçar a passagem do JSON sem ser bloqueado pelo servidor de destino
+        const webhookUrl = "https://corsproxy.io/?" + encodeURIComponent(targetUrl);
         
         console.log("Iniciando disparo para o webhook...");
         console.log("Dados que serão enviados:", leadData);
