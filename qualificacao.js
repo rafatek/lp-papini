@@ -69,24 +69,20 @@ async function selectValorPedidoAndSubmit(valor) {
     try {
         const webhookUrl = "https://backend.leylim.com.br/api/webhooks/f9b17591-ac54-4e9e-a012-a23d310b5bda";
         
-        // Enviando como JSON puro, que é o padrão de APIs e Webhooks
+        // Enviando JSON usando no-cors (O navegador envia como text/plain, evadindo o bloqueio preflight, mas mantendo a string JSON intacta pro backend ler)
         const response = await fetch(webhookUrl, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
+            mode: 'no-cors',
             body: JSON.stringify(leadData)
         });
-
-        console.log("Status do Webhook:", response.status);
 
         // Atraso de segurança de 1 segundo para garantir que a requisição finalize completamente
         await new Promise(resolve => setTimeout(resolve, 1000));
 
     } catch (error) {
         console.error("Erro crítico no envio para o webhook:", error);
-        // Mesmo com erro, atrasa 1 segundo para visualizarmos a requisição no painel
+        // Alerta na tela para que o usuário saiba se falhou no navegador dele
+        alert("Ocorreu um erro ao enviar os dados. Detalhe: " + error.message);
         await new Promise(resolve => setTimeout(resolve, 1000));
     }
 
