@@ -65,48 +65,49 @@ async function selectValorPedidoAndSubmit(valor) {
     // Show loading state
     showStep('loading');
 
-    // Webhook POST
-    try {
-        const targetUrl = "https://backend.leylim.com.br/api/webhooks/f9b17591-ac54-4e9e-a012-a23d310b5bda";
-        
-        console.log("Iniciando disparo para o webhook...");
+    const targetUrl = "https://backend.leylim.com.br/api/webhooks/f9b17591-ac54-4e9e-a012-a23d310b5bda";
+    console.log("Iniciando disparo modo raiz (Formulário Oculto) para o webhook...");
 
-        // O backend da Leylim sofre de um erro interno (Crash 500) ao receber requisições preflight OPTIONS (CORS).
-        // Portanto, a ÚNICA maneira de enviar do frontend é através de um 'simple request' que não dispara OPTIONS.
-        // Convertendo os dados para formulário e utilizando mode: 'no-cors' para o navegador ignorar a falta de cabeçalhos de resposta.
-        
-        const params = new URLSearchParams();
-        for (const key in leadData) {
-            params.append(key, leadData[key]);
-        }
-
-        await fetch(targetUrl, {
-            method: 'POST',
-            mode: 'no-cors',
-            body: params // O navegador envia como application/x-www-form-urlencoded automaticamente
-        });
-
-        console.log("Requisição enviada (Opaque Request). Como usamos no-cors, o disparo foi feito sem travas.");
-
-        // Atraso de segurança para garantir a entrega
-        await new Promise(resolve => setTimeout(resolve, 1500));
-
-    } catch (error) {
-        console.error("Erro crítico na requisição Fetch:", error);
+    // Cria um Iframe invisível (Isso impede que a página mude de tela quando o formulário for enviado)
+    let iframe = document.getElementById('hidden-webhook-frame');
+    if (!iframe) {
+        iframe = document.createElement('iframe');
+        iframe.id = 'hidden-webhook-frame';
+        iframe.name = 'hidden-webhook-frame';
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
     }
 
-    // Redirect Logic (Comentado temporariamente para testes de Webhook)
-    /*
-    if (leadData.tipoPessoa === 'Pessoa Jurídica' && leadData.valorPedido === 'Acima de R$100') {
-        window.location.href = 'obrigado.html';
-    } else {
-        window.location.href = 'recuperacao.html';
+    // Cria o formulário HTML raiz
+    let form = document.createElement('form');
+    form.action = targetUrl;
+    form.method = 'POST';
+    form.target = 'hidden-webhook-frame'; // Aponta o envio para o Iframe
+
+    // Preenche o formulário com os dados do Lead
+    for (const key in leadData) {
+        let input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = leadData[key];
+        form.appendChild(input);
     }
-    */
+
+    // Adiciona na tela, clica em enviar, e remove da tela
+    document.body.appendChild(form);
+    form.submit();
     
-    // Mostra mensagem de sucesso no lugar de redirecionar
-    const loadingStep = document.getElementById('lead-step-loading');
-    if(loadingStep) {
-        loadingStep.innerHTML = '<i class="fa-solid fa-circle-check" style="font-size: 3rem; color: #25D366;"></i><h3 style="margin-top:1rem; font-family: var(--font-body); font-weight: normal;">Dados enviados! Verifique o Webhook.</h3>';
-    }
+    console.log("Formulário disparado com sucesso!");
+
+    // Pequeno atraso para simular o carregamento antes de redirecionar o usuário
+    setTimeout(() => {
+        document.body.removeChild(form);
+        
+        // Redireciona com base nas regras (Descomentado para voltar ao funcionamento normal)
+        if (leadData.tipoPessoa === 'Pessoa Jurídica' && leadData.valorPedido === 'Acima de R$100') {
+            window.location.href = 'obrigado.html';
+        } else {
+            window.location.href = 'recuperacao.html';
+        }
+    }, 1500);
 }
