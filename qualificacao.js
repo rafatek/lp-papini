@@ -103,11 +103,19 @@ async function selectValorPedidoAndSubmit(valor) {
     setTimeout(() => {
         document.body.removeChild(form);
         
-        // Redireciona com base nas regras (Descomentado para voltar ao funcionamento normal)
+    // Redireciona com base nas regras (Comentado para debug)
+        /*
         if (leadData.tipoPessoa === 'Pessoa Jurídica' && leadData.valorPedido === 'Acima de R$100') {
             window.location.href = 'obrigado.html';
         } else {
             window.location.href = 'recuperacao.html';
+        }
+        */
+        
+        // Mantém a tela congelada com mensagem de sucesso para ver o que aparece no Network/Console
+        const loadingStep = document.getElementById('lead-step-loading');
+        if(loadingStep) {
+            loadingStep.innerHTML = '<i class="fa-solid fa-circle-check" style="font-size: 3rem; color: #25D366;"></i><h3 style="margin-top:1rem; font-family: var(--font-body); font-weight: normal;">Enviado! Verifique o console/network.</h3>';
         }
     }, 1500);
 }
